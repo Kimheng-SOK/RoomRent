@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const headerHTML = `
     <header class="fixed top-0 left-0 right-0 z-40 bg-white shadow-sm py-4 px-4 sm:px-6 lg:px-8 ">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="./main.html" class="title text-2xl lg:text-3xl font-bold text-indigo-600 rounded-md p-2 hover:bg-indigo-50 transition-colors duration-200">បន្ទប់ជួល</a>
+            <a href="index.html" class="title text-2xl lg:text-3xl font-bold text-indigo-600 rounded-md p-2 hover:bg-indigo-50 transition-colors duration-200">បន្ទប់ជួល</a>
             <nav class="hidden md:flex space-x-4 items-center lg:text-xl">
-                <a href="./main.html" class="mx-4 text-slate-600 hover:text-indigo-600 font-medium transition-colors duration-200">Home</a>
+                <a href="index.html" class="mx-4 text-slate-600 hover:text-indigo-600 font-medium transition-colors duration-200">Home</a>
                 <a href="listings.html" class="mx-4 text-slate-600 hover:text-indigo-600 font-medium transition-colors duration-200">Listings</a>
-                <a href="./about.html" class="mx-4 text-slate-600 hover:text-indigo-600 font-medium transition-colors duration-200">About Us</a>
+                <a href="about.html" class="mx-4 text-slate-600 hover:text-indigo-600 font-medium transition-colors duration-200">About Us</a>
                 <a href="contact.html" class="mx-4 text-slate-600 hover:text-indigo-600 font-medium transition-colors duration-200">Contact</a>
                 <a href="loginPage.html" id="headerLoginBtn" class="ml-4 bg-gray-200 text-slate-700 py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 transition-colors duration-300 shadow-md">Login</a>
                 <button id="headerLogoutBtn" class="bg-red-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-red-600 transition-colors duration-300 shadow-md hidden">Logout</button>
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </svg>
                 </button>
             </div>
-            <a href="main.html" class="block text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 px-3 py-2 rounded-md font-medium transition-colors duration-200">Home</a>
+            <a href="index.html" class="block text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 px-3 py-2 rounded-md font-medium transition-colors duration-200">Home</a>
             <a href="listings.html" class="block text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 px-3 py-2 rounded-md font-medium transition-colors duration-200">Listings</a>
             <a href="about.html" class="block text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 px-3 py-2 rounded-md font-medium transition-colors duration-200">About Us</a>
             <a href="contact.html" class="block text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 px-3 py-2 rounded-md font-medium transition-colors duration-200">Contact</a>
@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         localStorage.removeItem('userRole');
         localStorage.removeItem('userEmail'); // Remove user email too
         // Optionally, show a logout message or redirect
-        window.location.href = 'main.html'; // Redirect back to login
+        window.location.href = 'index.html'; // Redirect back to login
         console.log('user logged out!!');
         updateHeaderButtons();
     }
@@ -286,13 +286,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (adminPanelBtn) {
             adminPanelBtn.classList.toggle('hidden', !(isLoggedIn && userRole === 'admin'));
             adminPanelBtn.addEventListener('click', () => {
-                if (window.location.pathname.endsWith('main.html')) {
+                if (window.location.pathname.endsWith('index.html')) {
                     // Already on main page, just open modal
                     document.getElementById('adminPanelModal').classList.remove('hidden');
                     if (typeof window.renderAdminRoomList === 'function') window.renderAdminRoomList();
                 } else {
                     // Go to main.html and trigger modal open via query param
-                    window.location.href = 'main.html?admin=1';
+                    window.location.href = 'index.html?admin=1';
                 }
             });
         }
@@ -329,11 +329,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (mobileSideAdminPanelBtn) {
             mobileSideAdminPanelBtn.classList.toggle('hidden', !(isLoggedIn && userRole === 'admin'));
             mobileSideAdminPanelBtn.addEventListener('click', () => {
-                if (window.location.pathname.endsWith('main.html')) {
+                if (window.location.pathname.endsWith('index.html')) {
                     document.getElementById('adminPanelModal').classList.remove('hidden');
                     if (typeof window.renderAdminRoomList === 'function') window.renderAdminRoomList();
                 } else {
-                    window.location.href = 'main.html?admin=1';
+                    window.location.href = 'index.html?admin=1';
                 }
             });
         }

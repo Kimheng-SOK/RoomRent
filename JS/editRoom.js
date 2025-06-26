@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (!isEditMode) form.reset();
                 setTimeout(() => {
-                    window.location.href = 'main.html';
+                    window.location.href = 'index.html';
                 }, 1000);
 
             } catch (error) {
