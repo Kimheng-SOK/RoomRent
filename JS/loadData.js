@@ -585,7 +585,7 @@ function renderFavoriteRoomsList() {
     favoriteRoomListings.querySelectorAll('.remove-fav-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const roomId = btn.getAttribute('data-id');
-            let favoriteIds = JSON.parse(localStorage.getItem('myFavorites') || '[]');
+            let favoriteIds = JSON.parse(localStorage.getItem(getFavoritesKey()) || '[]');
             favoriteIds = favoriteIds.filter(id => id !== roomId);
             localStorage.setItem(getFavoritesKey(), JSON.stringify(favoriteIds));
             renderFavoriteRoomsList();
